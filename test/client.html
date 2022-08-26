@@ -1,0 +1,28 @@
+<!-- ./client/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ampil</title>
+  </head>
+  <body>
+    <button onClick="sendMsg()">Hit Me</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io("http://localhost:4000").connect();
+
+      function sendMsg() {
+        let userObject={
+            meassage:"Hi",
+            firstName:"Ampil",
+            lastName:"Verma",
+            skills:"NodeJs"
+        }
+        socket.emit("message", userObject);
+      }
+    </script>
+  </body>
+</html>
